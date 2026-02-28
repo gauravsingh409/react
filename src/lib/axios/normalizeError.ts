@@ -1,5 +1,5 @@
+import type { ApiError } from '@/types';
 import axios from 'axios';
-import type { ApiError } from './types';
 
 export function normalizeError(error: unknown): ApiError {
     if (axios.isAxiosError(error)) {

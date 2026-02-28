@@ -6,4 +6,4 @@ export const CONFIG = {
     ENV: env,
     CONSTANT: constant,
     ROUTES: routes
-}
+} 

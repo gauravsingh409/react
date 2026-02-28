@@ -1,6 +1,6 @@
 import type { AxiosInstance, AxiosRequestConfig } from 'axios';
-import type { ApiResponse } from './types';
 import { normalizeError } from './normalizeError';
+import type { ApiResponse } from '@/types';
 
 export class BaseApiService {
     private readonly api: AxiosInstance;

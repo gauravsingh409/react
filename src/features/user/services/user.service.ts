@@ -1,4 +1,5 @@
-import { apiClient, BaseApiService, type PaginatedData } from "@/services/api";
+import { apiClient, BaseApiService } from "@/lib/axios";
+import type { PaginatedData } from "@/types";
 
 class UserService extends BaseApiService {
     constructor() {
