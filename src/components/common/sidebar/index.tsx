@@ -1,34 +1,32 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <SidebarProvider>
-      <AppSidebar />
-      <main>
-        <SidebarTrigger />
-        {children}
-      </main>
-    </SidebarProvider>
-  )
-}
-
+import { useAuthStore } from "@/store";
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarHeader,
-} from "@/components/ui/sidebar"
+	getSidebarByRole,
+	type SidebarItemInterface,
+	type SidebarSection as SidebarSectionType,
+} from "./data/SidebarData";
+import { LogoSection } from "./partials/LogoSection";
+import SidebarSection from "./partials/SidebarSection";
 
-export function AppSidebar() {
-  return (
-    <Sidebar>
-      <SidebarHeader />
-      <SidebarContent>
-        <SidebarGroup />
-        <SidebarGroup />
-      </SidebarContent>
-      <SidebarFooter />
-    </Sidebar>
-  )
-}
+const Sidebar = () => {
+	const { user } = useAuthStore();
+	if (!user) return null;
+
+	const sidebarItems = getSidebarByRole(user?.role);
+
+	const sidebarSections = Object.entries(sidebarItems) as [
+		SidebarSectionType,
+		SidebarItemInterface[],
+	][];
+
+	return (
+		<aside className="h-full w-72 shrink-0 overflow-y-auto border-neutral-30 border-r py-4 pr-1.5">
+			<LogoSection />
+
+			{sidebarSections.map(([sectionName, section]) => (
+				<SidebarSection key={sectionName} data={section} />
+			))}
+		</aside>
+	);
+};
+
+export default Sidebar;

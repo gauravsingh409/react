@@ -1,0 +1,1 @@
+export type * as GetMeTypes from './getMeTypes'
