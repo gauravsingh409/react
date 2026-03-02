@@ -36,7 +36,7 @@ export const FormWrapper = <T extends FieldValues>({
 				noValidate
 				className={className}
 			>
-				<fieldset disabled={isSubmitting} className="contents">
+				<fieldset disabled={isSubmitting} className={'contents'}>
 					{children}
 				</fieldset>
 			</form>

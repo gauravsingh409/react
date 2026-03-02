@@ -13,16 +13,14 @@ export function LoginForm() {
             onSubmit={onSubmit}
             onError={onError}
             id="login-form"
-            className=""
+            className="flex flex-col gap-y-10 p-10 shadow-xs border border-gray-200 rounded-2xl"
         >
-            <div className="space-y-5 p-5">
-                <FormText name="email" label="Email" />
-                <FormText name="password" label="Password" />
+            <FormText name="email" label="Email" />
+            <FormText name="password" label="Password" />
 
-                <Button className="mt-10 w-full" type="submit">
-                    Login
-                </Button>
-            </div>
+            <Button className="mt-10 w-full" type="submit">
+                Login
+            </Button>
         </FormWrapper>
     );
 }
