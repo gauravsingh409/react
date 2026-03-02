@@ -19,7 +19,7 @@ function Input({ leftIcon, rightIcon, wrapperProps, inputProps }: InputProps) {
   return (
     <div
       className={cn(
-        "relative flex items-center rounded-sm border border-neutral-30 p-2 shadow-xs",
+        "relative flex items-center rounded-sm p-2 border border-neutral-300",
         wrapperClassName,
       )}
       {...restWrapperProps}
@@ -35,9 +35,12 @@ function Input({ leftIcon, rightIcon, wrapperProps, inputProps }: InputProps) {
         data-slot="input"
         className={cn(
           "w-full bg-transparent",
-          "focus:outline-none focus:ring-0",
+          "outline-none border-none ring-0 shadow-none",
+          "hover:outline-none hover:border-none hover:ring-0 hover:shadow-none",
+          "focus:outline-none focus:border-none focus:ring-0 focus:shadow-none",
+          "focus-visible:outline-none focus-visible:border-none focus-visible:ring-0 focus-visible:shadow-none",
+          "active:outline-none active:border-none active:ring-0 active:shadow-none",
           "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
-
           leftIcon && "pl-10",
           rightIcon && "pr-10",
           inputClassName,
