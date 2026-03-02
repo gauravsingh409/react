@@ -20,7 +20,7 @@ export class BaseApiService {
         }
     }
 
-    protected async post<TResponse, TBody extends Record<string, unknown>>(
+    protected async post<TResponse, TBody = unknown>(
         url: string,
         data?: TBody,
         config?: AxiosRequestConfig,

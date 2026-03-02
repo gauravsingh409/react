@@ -3,7 +3,7 @@ import { Outlet } from "react-router";
 
 export function ProtectedLayout() {
     return (
-        <div className="flex h-screen w-screen layout-root flex-row">
+        <div className="h-screen w-screen layout-root flex-row">
             <Sidebar />
             <main className="layout-root">
                 <Outlet />

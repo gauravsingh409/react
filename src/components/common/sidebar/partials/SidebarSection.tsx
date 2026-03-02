@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { cn } from "@/lib/utils";
-import type { SidebarItemInterface } from "../data/SidebarData";
+import type { SidebarItemInterface } from "../types";
 import SidebarItem from "./SidebarItem";
 
 interface Props {

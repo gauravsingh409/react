@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import { ProtectedRoutes } from "./protected-routes";
 import { PublicRoutes } from "./public-toutes";
-import { AuthGuard } from "./guards";
 
 export const router = createBrowserRouter([
     {
@@ -30,20 +29,11 @@ export const router = createBrowserRouter([
             {
                 element: (
                     <Suspense fallback={<Spinner />}>
-                        <AuthGuard />
+                        <ProtectedLayout />
                     </Suspense>
                 ),
-                children: [
-                    {
-                        id: "protected-routes",
-                        element: (
-                            <Suspense fallback={<Spinner />}>
-                                <ProtectedLayout />
-                            </Suspense>
-                        ),
-                        children: ProtectedRoutes,
-                    }
-                ]
+                children: ProtectedRoutes
+
             },
         ]
     },

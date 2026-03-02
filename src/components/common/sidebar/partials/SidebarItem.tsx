@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Link, useLocation } from "react-router";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { SidebarItemInterface } from "../data/SidebarData";
+import type { SidebarItemInterface } from "../types";
 import { useDisclosure } from "@/hooks";
 import { BaseIcon } from "@/assets/icon/BaseIcon";
 import { Typography } from "@/components/ui/Typography";
@@ -20,12 +20,6 @@ const SidebarItem = ({ item }: { item: SidebarItemInterface }) => {
 
 	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault();
-		// if (item.id === "logout") {
-		// 	logoutDialog?.open();
-		// 	return;
-		// }
-
-		// item.onclick?.();
 	};
 
 	return (
@@ -51,7 +45,7 @@ const SidebarItem = ({ item }: { item: SidebarItemInterface }) => {
 						size="sm"
 						className={cn(
 							"leading-5",
-							isActive ? "text-neutral-10" : "text-neutral-100",
+							isActive ? "text-neutral-900" : "text-neutral-100",
 						)}
 					>
 						{item.label}

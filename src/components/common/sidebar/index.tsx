@@ -1,19 +1,10 @@
-import { useAuthStore } from "@/store";
-import {
-	getSidebarByRole,
-	type SidebarItemInterface,
-	type SidebarSection as SidebarSectionType,
-} from "./data/SidebarData";
+import { allSidebarItems } from "./data/index.ts";
+import type { SidebarItemInterface, SidebarSection as SidebarSectionType } from "./types";
 import { LogoSection } from "./partials/LogoSection";
 import SidebarSection from "./partials/SidebarSection";
 
 const Sidebar = () => {
-	const { user } = useAuthStore();
-	if (!user) return null;
-
-	const sidebarItems = getSidebarByRole(user?.role);
-
-	const sidebarSections = Object.entries(sidebarItems) as [
+	const sidebarSections = Object.entries(allSidebarItems) as [
 		SidebarSectionType,
 		SidebarItemInterface[],
 	][];

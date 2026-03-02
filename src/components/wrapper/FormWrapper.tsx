@@ -1,14 +1,16 @@
 import {
 	type FieldValues,
 	FormProvider,
+	type SubmitErrorHandler,
+	type SubmitHandler,
 	type UseFormReturn,
 } from "react-hook-form";
-import { cn } from "@/lib/utils";
 
-interface AppFormProps<T extends FieldValues> {
+interface FormWrapperProps<T extends FieldValues> {
 	children: React.ReactNode;
 	useFormMethods: UseFormReturn<T>;
-	onSubmit: (data: T) => void | Promise<void>;
+	onSubmit: SubmitHandler<T>;
+	onError?: SubmitErrorHandler<T>;
 	className?: string;
 	id?: string;
 }
@@ -17,16 +19,24 @@ export const FormWrapper = <T extends FieldValues>({
 	children,
 	useFormMethods,
 	onSubmit,
+	onError,
 	className,
 	id,
-}: AppFormProps<T>) => {
+}: FormWrapperProps<T>) => {
+	const {
+		handleSubmit,
+		formState: { isSubmitting },
+	} = useFormMethods;
+
 	return (
 		<FormProvider {...useFormMethods}>
-			<form id={id} onSubmit={useFormMethods.handleSubmit(onSubmit)} noValidate>
-				<fieldset
-					disabled={useFormMethods.formState.isSubmitting}
-					className={cn("contents", className)}
-				>
+			<form
+				id={id}
+				onSubmit={handleSubmit(onSubmit, onError)}
+				noValidate
+				className={className}
+			>
+				<fieldset disabled={isSubmitting} className="contents">
 					{children}
 				</fieldset>
 			</form>
