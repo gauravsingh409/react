@@ -19,9 +19,12 @@ const SidebarItem = ({ item }: { item: SidebarItemInterface }) => {
 		(currentPath === item.link || currentPath.startsWith(`${item.link}/`));
 
 	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-		e.preventDefault();
+		if (item.onclick) {
+			e.preventDefault();
+			item.onclick();
+			return;
+		}
 	};
-
 	return (
 		<Link to={item.link ?? "#"} onClick={handleClick} className="w-full">
 			<Button
@@ -45,7 +48,7 @@ const SidebarItem = ({ item }: { item: SidebarItemInterface }) => {
 						size="sm"
 						className={cn(
 							"leading-5",
-							isActive ? "text-neutral-900" : "text-neutral-100",
+							isActive ? "text-neutral-100" : "text-neutral-800",
 						)}
 					>
 						{item.label}

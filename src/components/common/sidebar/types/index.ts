@@ -1,7 +1,7 @@
 import type { IconName } from "@/assets/icon/IconName";
 
 // Define the SidebarItemId of all the routes objects in the application
-export type SidebarItemId = 'dashboard' | "lead";
+export type SidebarItemId = 'dashboard' | "user" | "settings" | "profile" | "logout";
 
 export interface SidebarItemInterface {
     id: SidebarItemId;

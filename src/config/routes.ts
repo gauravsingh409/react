@@ -3,9 +3,18 @@ export const routes = {
         LOGIN: "/login",
     },
     DASHBOARD: {
-        ROOT: "/",
+        ROOT: "/dashboard",
     },
-    LEAD: {
-        ROOT: "/lead",
+    USER: {
+        ROOT: "/user",
+    },
+    SETTINGS: {
+        ROOT: "/settings",
+    },
+    PROFILE: {
+        ROOT: "/profile",
+    },
+    LOGOUT: {
+        ROOT: "/logout",
     }
 }

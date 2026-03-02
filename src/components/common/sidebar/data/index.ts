@@ -12,10 +12,28 @@ export const allSidebarItems: Record<SidebarSection, SidebarItemInterface[]> = {
 			label: "Dashboard",
 		},
 		{
-			id: "lead",
-			icon: "command",
-			link: CONFIG.ROUTES.LEAD.ROOT,
-			label: "Lead",
+			id: "user",
+			icon: "users",
+			link: CONFIG.ROUTES.USER.ROOT,
+			label: "User",
 		},
+		{
+			id: "settings",
+			icon: "command",
+			link: CONFIG.ROUTES.SETTINGS.ROOT,
+			label: "Settings",
+		},
+		{
+			id: "profile",
+			icon: "command",
+			link: CONFIG.ROUTES.PROFILE.ROOT,
+			label: "Profile",
+		},
+		{
+			id: "logout",
+			icon: "command",
+			link: CONFIG.ROUTES.LOGOUT.ROOT,
+			label: "Logout",
+		}
 	],
 };
