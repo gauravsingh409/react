@@ -1,5 +1,6 @@
 export const api_keys = {
     AUTH: {
-        LOGIN: ["login"]
+        LOGIN: ["login"],
+        GET_ME: ["getMe"]
     }
 } as const

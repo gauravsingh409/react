@@ -16,7 +16,7 @@ export function LoginForm() {
             className="flex flex-col gap-y-10 p-10 shadow-xs border border-gray-200 rounded-2xl"
         >
             <FormText name="email" label="Email" />
-            <FormText name="password" label="Password" />
+            <FormText name="password" label="Password" type="password" />
 
             <Button className="mt-10 w-full" type="submit">
                 Login

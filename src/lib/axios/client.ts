@@ -1,16 +1,19 @@
 import { CONFIG } from '@/config';
 import { tokenService } from '@/features/auth/services';
+import { storage } from '@/utils';
 import axios, { type InternalAxiosRequestConfig } from 'axios';
 
 export const apiClient = axios.create({
     baseURL: CONFIG.ENV.BASE_API,
     timeout: 15000,
     headers: { 'Content-Type': 'application/json' },
+    withCredentials: true
 });
 
 // Request interceptor — attach token
 apiClient.interceptors.request.use((config: InternalAxiosRequestConfig<unknown>) => {
-    const token = tokenService.getAccessToken();
+    console.log(CONFIG.ENV.MODE);
+    const token = storage.get('access_token', 'local');
     if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
 });

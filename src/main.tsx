@@ -2,12 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/index.css'
 import App from './app/App.tsx'
-import { TooltipProvider } from "@/components/ui/tooltip"
+import { Providers } from './app/Providers.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <TooltipProvider>
+    <Providers>
       <App />
-    </TooltipProvider>
+    </Providers>
   </StrictMode>,
 )
